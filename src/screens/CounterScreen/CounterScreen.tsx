@@ -7,9 +7,18 @@ export const CounterScreen = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Counter: {counter}</Text>
-      <TouchableOpacity onPress={() => setCounter(counter + 1)}>
-        <View style={styles.buttonBox}>
-          <Text style={styles.buttonText}>Click me</Text>
+      <TouchableOpacity
+        style={[styles.buttonContainer, styles.buttonContainerRight]}
+        onPress={() => setCounter(counter + 1)}>
+        <View style={styles.button}>
+          <Text style={styles.buttonText}>+1</Text>
+        </View>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={[styles.buttonContainer, styles.buttonContainerLeft]}
+        onPress={() => setCounter(counter - 1)}>
+        <View style={styles.button}>
+          <Text style={styles.buttonText}>-1</Text>
         </View>
       </TouchableOpacity>
     </View>
@@ -25,15 +34,27 @@ const styles = StyleSheet.create({
     fontSize: 30,
     textAlign: 'center',
   },
-  buttonBox: {
-    marginTop: 10,
-    marginHorizontal: 50,
-    padding: 10,
-    backgroundColor: 'blue',
+  buttonContainer: {
+    position: 'absolute',
+    bottom: 25,
+  },
+  buttonContainerLeft: {
+    left: 25,
+  },
+  buttonContainerRight: {
+    right: 25,
+  },
+  button: {
+    width: 60,
+    height: 60,
     borderRadius: 100,
+    backgroundColor: '#5856d6',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   buttonText: {
-    fontSize: 20,
-    textAlign: 'center',
+    color: 'white',
+    fontSize: 25,
+    fontWeight: 'bold',
   },
 });
