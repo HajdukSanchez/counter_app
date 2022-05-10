@@ -1,34 +1,39 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 
 export const CounterScreen = () => {
   const [counter, setCounter] = useState<number>(10);
 
   return (
-    <View
-      style={{
-        flex: 1, // Get all the space available
-        justifyContent: 'center',
-      }}>
-      <Text
-        style={{
-          textAlign: 'center',
-          fontSize: 30,
-        }}>
-        Counter: {counter}
-      </Text>
+    <View style={styles.container}>
+      <Text style={styles.title}>Counter: {counter}</Text>
       <TouchableOpacity onPress={() => setCounter(counter + 1)}>
-        <View
-          style={{
-            backgroundColor: 'red',
-            borderRadius: 100,
-            padding: 10,
-            marginTop: 10,
-            marginHorizontal: 50,
-          }}>
-          <Text style={{ textAlign: 'center', fontSize: 20 }}>Click me</Text>
+        <View style={styles.buttonBox}>
+          <Text style={styles.buttonText}>Click me</Text>
         </View>
       </TouchableOpacity>
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1, // Get all the space available
+    justifyContent: 'center',
+  },
+  title: {
+    fontSize: 30,
+    textAlign: 'center',
+  },
+  buttonBox: {
+    marginTop: 10,
+    marginHorizontal: 50,
+    padding: 10,
+    backgroundColor: 'blue',
+    borderRadius: 100,
+  },
+  buttonText: {
+    fontSize: 20,
+    textAlign: 'center',
+  },
+});
