@@ -4,5 +4,5 @@ module.exports = {
   bracketSpacing: true,
   singleQuote: true,
   trailingComma: 'all',
-  wordWrapColumn: 150,
+  max_line_length: 150,
 };
